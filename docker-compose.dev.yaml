@@ -1,0 +1,11 @@
+services:
+  db:
+    image: mysql
+    env_file: '.env'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+
+volumes:
+  mysqldata:
