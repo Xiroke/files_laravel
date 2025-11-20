@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Reponses\UnauthorizedResponse;
-use App\Http\Reponses\UserAlreadyExistResponse;
-use App\Http\Requests\UserCreate;
-use App\Http\Requests\UserLogin;
+use App\Http\Requests\LoginUserRequest;
+use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -15,14 +14,12 @@ class AuthController extends Controller
 {
     /**
      * Вход
-     * @param UserLogin $request
+     * @param LoginUserRequest $request
      * @return JsonResponse
      */
-    public function login(UserLogin $request)
+    public function login(LoginUserRequest $request)
     {
-        $credentials = $request->validate([
-
-        ]);
+        $credentials = $request->validated();
 
         if (auth()->attempt($credentials)) {
             $token = auth()->user()->createToken("auth-token")->plainTextToken;
@@ -35,19 +32,12 @@ class AuthController extends Controller
 
     /**
      * Регистрация
-     * @param UserCreate $request
+     * @param StoreUserRequest $request
      * @return JsonResponse
      */
-    public function signup(UserCreate $request)
+    public function signup(StoreUserRequest $request)
     {
         $credentials = $request->validated();
-
-        // пользователь уже есть
-        if (User::where('email', $credentials['email'])->exists()) {
-            return UserAlreadyExistResponse::make();
-        }
-
-        unset($credentials['confirm_password']);
 
         $user = User::create($credentials);
 
@@ -64,7 +54,7 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         // блокируем токен
-        auth()->user()->currentAccessToken()->delete();
+        $request->user()->currentAccessToken()->delete();
         return response()->json(['message' => 'Вы вышли из аккаунта']);
     }
 }
