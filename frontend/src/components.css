@@ -1,0 +1,131 @@
+input[type=text] {
+    padding: 0 8px;
+    width: 220px;
+    height: 36px;
+    font-size: 14px;
+    border-radius: 8px;
+    outline: none;
+    border: 2px var(--border) solid;
+}
+
+input:focus {
+    border-color: var(--primary);
+}
+
+button, .a_btn {
+    display: block;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.icon-btn {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary {
+    background-color: var(--foreground);
+    color: var(--background);
+}
+
+.btn-primary:hover {
+    background-color: rgba(var(--foreground-rgb), 0.8);
+}
+
+.btn-outline {
+    background-color: var(--background);
+    color: var(--foreground);
+    border: 2px solid var(--border);
+}
+
+.btn-outline:hover {
+    border-color: var(--primary);
+}
+
+.btn-destructive {
+    background-color: var(--destructive);
+    color: var(--background);
+}
+
+.btn-destructive:hover {
+    background-color: rgba(var(--destructive-rgb), 0.8);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form {
+    min-width: 220px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.form__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+.container-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.list-items-page {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+.list-items {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.list-item {
+    padding: 0 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: var(--background-2);
+}
+
+.list-item__icon svg {
+    width: 36px;
+    height: 36px;
+}
+
+.list-item__start {
+    display: flex;
+    gap: 12px;
+}
+
+.list-item__end {
+    display: flex;
+}

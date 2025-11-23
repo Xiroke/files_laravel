@@ -1,0 +1,13 @@
+<script lang="ts" setup>
+
+</script>
+
+<template>
+  <svg fill="currentColor" height="24px" viewBox="0 -960 960 960" width="24px" xmlns="http://www.w3.org/2000/svg">
+    <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+  </svg>
+</template>
+
+<style scoped>
+
+</style>
