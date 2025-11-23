@@ -8,6 +8,6 @@ class FileAlreadyExistResponse
 {
     public static function make(): JsonResponse
     {
-        return response()->json(['detail' => 'Файл с таким именем уже существует'], 409);
+        return response()->json(['detail' => 'Файл с таким именем уже существует'], 422);
     }
 }

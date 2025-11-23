@@ -35,6 +35,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function grantedFile()
+    {
+        return $this->belongsToMany(File::class, 'file_user');
+    }
+
     /**
      * Get the attributes that should be cast.
      *

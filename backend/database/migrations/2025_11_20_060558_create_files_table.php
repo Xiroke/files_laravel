@@ -14,7 +14,14 @@ return new class extends Migration {
             $table->id();
             $table->string('filename');
             $table->string('path');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->timestamps();
+        });
+
+        Schema::create('file_user', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('file_id')->constrained('files')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -24,6 +31,7 @@ return new class extends Migration {
      */
     public function down(): void
     {
+        Schema::dropIfExists('file_user');
         Schema::dropIfExists('files');
     }
 };
